@@ -1,0 +1,20 @@
+{{#each questions}}
+<div class="card car-body mb-3">
+    <h4>{{question}}</h4>
+    <p>{{details}}</p>
+    <ul>
+        <li><strong>Option A:</strong> {{optionA}}</li>
+        <li><strong>Option B:</strong> {{optionB}}</li>
+        <li><strong>Option C:</strong> {{optionC}}</li>
+        <li><strong>Option D:</strong> {{optionD}}</li>
+    </ul>
+    {{!-- <a href="/ideas/edit/{{id}}" class="btn btn-dark btn-block">Edit</a> --}}
+    <a href="questions/edit/{{id}}" class="btn btn-primary mb-3">Edit</a>
+    <form action="/questions/{{question.id}}?_method=DELTE" method="post">
+    <input type="hidden" name="_method" value="DELETE">
+    <button type="submit" class="btn btn-danger btn-block">DELETE</button>
+    </form>
+</div>
+{{else}}
+<p>No Questions listed</p>
+{{/each}}
