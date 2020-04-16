@@ -1,0 +1,12 @@
+/* #imageform{
+    display: none;
+} */
+
+#footer{
+    height: 200px;
+    width: 100%;
+    background-color: blue;
+}
+#footer h1{
+    color: #fff;
+}

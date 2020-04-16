@@ -34,6 +34,14 @@
             <input type="text" class="form-control" name="optionD" value="{{question.optionD}}">
         </div>
 
+         <div class="form-group">
+            <label for="answer">Answer</label>
+            <input type="text" class="form-control" name="answer" value="{{question.answer}}">
+        </div>
+        {{#if question.imageSrc}}
+        <p><img class="img-responsive mt-3" src="/uploads/{{question.imageSrc}}"  height="200px" width="auto" srcset=""></p>
+        {{else}}
+        {{/if}}
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>

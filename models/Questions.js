@@ -25,6 +25,14 @@ const QuestionSChema = new mongoose.Schema ({
         type: String,
         required: true
     },
+    answer:{
+        type: String,
+        required: true
+    },
+    imageSrc:{
+        type: String,
+        required: false
+    },
     date:{
         type: Date,
         default : Date.now

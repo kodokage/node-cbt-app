@@ -1,20 +1,105 @@
-{{#each questions}}
-<div class="card car-body mb-3">
-    <h4>{{question}}</h4>
-    <p>{{details}}</p>
-    <ul>
-        <li><strong>Option A:</strong> {{optionA}}</li>
-        <li><strong>Option B:</strong> {{optionB}}</li>
-        <li><strong>Option C:</strong> {{optionC}}</li>
-        <li><strong>Option D:</strong> {{optionD}}</li>
-    </ul>
-    {{!-- <a href="/ideas/edit/{{id}}" class="btn btn-dark btn-block">Edit</a> --}}
-    <a href="questions/edit/{{id}}" class="btn btn-primary mb-3">Edit</a>
-    <form action="/questions/{{question.id}}?_method=DELTE" method="post">
-    <input type="hidden" name="_method" value="DELETE">
-    <button type="submit" class="btn btn-danger btn-block">DELETE</button>
-    </form>
+{{!-- {{#each questions}}
+<div class="row">
+    <div class="col-md-8 mx-auto">
+        <div class="card car-body mb-3">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mt-3 ml-4 mb-3">
+                     <h4>{{question}}</h4>
+                        <p>{{details}}</p>
+                       
+
+                 <div class="form-check">
+                    <input class="form-check-input" type="radio" name="{{optionA}}"  value="{{optionA}}">
+                    <label class="form-check-label" for="{{optionA}}">
+                        {{optionA}}
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="{{optionB}}"  value="{{optionB}}">
+                    <label class="form-check-label" for="{{optionB}}">
+                        {{optionB}}
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="{{optionC}}"  value="{{optionC}}">
+                    <label class="form-check-label" for="{{optionC}}">
+                        {{optionC}}
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="{{optionD}}"  value="{{optionD}}">
+                    <label class="form-check-label" for="{{optionD}}">
+                        {{optionD}}
+                    </label>
+                </div>
+
+             </div>
+         </div>
+
+                <div class="col-md-6">
+                    <p><img class="img-responsive mt-3" src="/uploads/{{imageSrc}}"  height="200px" width="auto" srcset=""></p>
+                </div>
+            </div>
+           
+          
+            <a href="questions/edit/{{id}}" class="btn btn-primary mb-3">Edit</a>
+            <form action="/questions/{{id}}?_method=DELETE" method="post">
+                <input type="hidden" name="_method" value="DELETE">
+                <button type="submit" class="btn btn-danger btn-block">DELETE</button>
+            </form>
+        </div>
+    </div>
 </div>
-{{else}}
-<p>No Questions listed</p>
-{{/each}}
+
+        {{else}}
+        <p>No Questions listed</p>
+        {{/each}} --}}
+
+
+        <table class="table table-bordered table-dark">
+  <thead  class="thead-light">
+    <tr>
+      <th scope="col">S/N</th>
+      <th scope="col">Question</th>
+      <th scope="col">Details</th>
+      <th scope="col">OptionA</th>
+      <th scope="col">OptionB</th>
+      <th scope="col">OptionC</th>
+      <th scope="col">OptionD</th>
+      <th scope="col">Image</th>
+      <th scope="col">Answer</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+       {{#each questions}}
+    <tr>
+      <th scope="row"></th>
+      <td>{{question}}</td>
+      <td>{{details}}</td>
+      <td>{{optionA}}</td>
+      <td>{{optionB}}</td>
+      <td>{{optionC}}</td>
+      <td>{{optionD}}</td>
+      {{#if imageSrc}}
+      <td>Yes</td>
+      {{else}}
+      <td>No</td>
+      {{/if}}
+       <td>{{answer}}</td>
+      <td>
+          <a href="questions/edit/{{id}}" class="btn btn-primary btn-block mb-3">Edit</a>
+          <form action="/questions/{{id}}?_method=DELETE" method="post">
+                <input type="hidden" name="_method" value="DELETE">
+                <button type="submit" class="btn btn-danger btn-block">DELETE</button>
+            </form>
+            
+      </td>
+    </tr>
+        {{else}}
+        <P>nO DATA</P>
+        {{/each}}
+  </tbody>
+</table>

@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Node cbt</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/jquery-3.2.1.min.js"></script>
 </head>
 <body>
 
@@ -16,16 +18,30 @@
             <a class="navbar-brand" href="/">CBT</a>
             </div>
             <ul class="nav navbar-nav">
-            <li><a href="/">Home</a></li>
-            {{!-- <li><a href="/about">About</a></li> --}}
-            <li><a href="/questions">Questions</a></li>
-            <li><a href="/questions/add">Add</a></li>
+            {{#if user}}
+                <li><a href="/users/logout" >Logout</a></li></li>
+                <li><a href="/questions">Questions</a></li>
+                <li><a href="/questions/add">Add Questions</a></li>
+            {{else}}
+                <li><a href="/users/register" >Register</a></li>
+                <li><a href="/users/login" >Login</a></li>
+            {{/if}}
+                <li><a href="/users/about">About</a></li>
             </ul>
         </div>
     </nav>
 
+    {{>_msg}}
+
     <div class="container">
         {{{body}}}
     </div>
+
+    <div id="footer">
+            <h1>Footer</h1>
+    </div>
+    
+    {{!-- <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script> --}}
 </body>
 </html>

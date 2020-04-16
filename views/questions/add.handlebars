@@ -1,6 +1,19 @@
-<div class="row">
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link"  id="textbutton">Text Question</a></li>
+    {{!-- <li class="page-item"><button id="tform">No Image</button></li> --}}
+    {{!-- <button id="tbutton">Text form</button> --}}
+    <li class="page-item" ><a class="page-link" id="imagebutton">Image Question</a></li>
+  </ul>
+</nav>
+
+<div class="row" id="textform">
     <div class="col-md-6 mx-auto">
+
+<div id="textform">
 <div class="card card-body">
+    <h3>Text Question Form</h3>
     <form action="/questions/add" method="post">
         <div class="form-group">
             <label for="question">Question</label>
@@ -32,8 +45,101 @@
             <input type="text" class="form-control" name="optionD">
         </div>
 
+        <div class="form-group">
+            <label for="answer">Answer</label>
+            <input type="text" class="form-control" name="answer">
+        </div>
+
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
 </div>
 </div>
+</div>
+
+<div class="row" id="imageform">
+    <div class="col-md-6 mx-auto">
+
+<div id="textform">
+<div class="card card-body">
+    <h3>Image Question Form</h3>
+    <form action="/questions/addimg" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="question">Question</label>
+            <textarea type="text" class="form-control" name="question"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="details">Details</label>
+            <textarea type="text" class="form-control" name="details"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="optionA">OptionA</label>
+            <input type="text" class="form-control" name="optionA">
+        </div>
+
+        <div class="form-group">
+            <label for="optionB">OptionB</label>
+            <input type="text" class="form-control" name="optionB">
+        </div>
+
+        <div class="form-group">
+            <label for="optionC">OptionC</label>
+            <input type="text" class="form-control" name="optionC">
+        </div>
+
+        <div class="form-group">
+            <label for="optionD">OptionD</label>
+            <input type="text" class="form-control" name="optionD">
+        </div>
+
+        <div class="form-group">
+            <label for="answer">Answer</label>
+            <input type="text" class="form-control" name="answer">
+        </div>
+
+        <div class="form-group">
+            <input type="file" name="questionImage" id="">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+</div>
+</div>
+</div>
+{{!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> --}}
+{{!-- <script src="/js/jquery-3.2.1.min.js"></script> --}}
+{{!-- 
+<button id="tbutton">Text form</button>
+
+<p id="para">This is a paragraph with little content.</p>
+<p>This is another small paragraph.</p> --}}
+
+<script>
+$(document).ready(function(){
+  $("#textbutton").click(function(){
+    $("#textform").toggle();
+  });
+});
+
+$(document).ready(function(){
+    $("#textbutton").click(function(){
+        $("#imageform").hide();
+    });
+});
+
+$(document).ready(function(){
+  $("#imagebutton").click(function(){
+    $("#imageform").toggle();
+  });
+});
+
+$(document).ready(function(){
+  $("#imagebutton").click(function(){
+    $("#textform").hide();
+  });
+});
+</script>
+
